@@ -1,3 +1,9 @@
+
+
 export function Home() {
-  return <h1>jfj</h1>
+  return (
+    <div>
+      <h1>Home</h1>
+    </div>
+  )
 }
