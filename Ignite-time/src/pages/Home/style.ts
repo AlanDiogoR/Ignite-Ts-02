@@ -53,6 +53,10 @@ const BaseInput =styled.input`
 export const TaskInput = styled(BaseInput)`
   flex: 1;
 
+  &::-webkit-calendar-picker-indicator {
+    display: none !important;
+  }
+
 `;
 
 export const MinutesAmountInput = styled(BaseInput)`
@@ -64,7 +68,7 @@ export const CountdownContainer = styled.div`
   font-family: 'Roboto Mono', monospace;
   font-size: 10rem;
   line-height: 8rem;
-  color: ${(props) => props.theme["green-500"]};
+  color: white;
 
   display: flex;
   gap: 1rem;
