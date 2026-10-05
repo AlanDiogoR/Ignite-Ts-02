@@ -6,7 +6,7 @@ Projeto Vite + React + TypeScript (SPA estática). Guia para rodar em Linux (ex.
 
 ## Requisitos
 
-- Node.js **20 LTS** (ou 22 LTS) e npm 9+ — `node -v`
+- Node.js **20 LTS ou 22 LTS** (validado em 20.19) e npm 9+ — `node -v`
 - Para servir com nginx (opcional): `sudo apt install nginx`
 
 ## Passo a passo
