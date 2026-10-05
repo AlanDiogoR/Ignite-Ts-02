@@ -1,6 +1,6 @@
 import { differenceInSeconds } from "date-fns";
 import React, { createContext, ReactNode, useState, useReducer, useEffect } from "react";
-import { ActionTypes, addNewCycleAction, interruptCurrentCycleAction } from "../reducers/cycles/action";
+import { addNewCycleAction, interruptCurrentCycleAction, markCurrentAsFinishedAcion } from "../reducers/cycles/action";
 import { Cycle, cyclesReducers } from "../reducers/cycles/reducers"
 
 interface CreateCycleData {
@@ -31,12 +31,14 @@ export function CyclesContextProvider({
   const [ cyclesState, dispatch] = useReducer(cyclesReducers,{
     cycles: [],
     activeCycleId: null,
-  }, () => {
+  }, (initialState) => {
     const storedStateAsJSON = localStorage.getItem('@Timer-pomodoro: cycles-state-1.0.0')
 
     if (storedStateAsJSON) {
       return JSON.parse(storedStateAsJSON)
     }
+
+    return initialState
   })
 
   const { cycles, activeCycleId } = cyclesState
@@ -67,7 +69,7 @@ export function CyclesContextProvider({
 
   function markyCurrentCycleAsFinished() {
 
-    dispatch(markyCurrentCycleAsFinished())
+    dispatch(markCurrentAsFinishedAcion())
   }
 
   function createNewCycle(data: CreateCycleData) {
@@ -87,7 +89,7 @@ export function CyclesContextProvider({
 
   function interruptCurrentCycle() {
 
-    dispatch(interruptCurrentCycleAction)
+    dispatch(interruptCurrentCycleAction())
 
     /*
     setCycles((state) => 
